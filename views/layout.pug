@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+  head
+    include includes/meta
+    link(rel="stylesheet", href="/build/main.css")
+    script(src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js")
+    script(src="https://cdn.jsdelivr.net/npm/vee-validate@2.1.5/dist/vee-validate.min.js")
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+  body
+    block content
+    script(src="/build/app.min.js")
+    

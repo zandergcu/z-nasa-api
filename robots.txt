@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /disallowed-path/
+
+# Remove hash and update sitemap url for individual project
+# Sitemap: https://drumdev.github.io/Sitemap.html
