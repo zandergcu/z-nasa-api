@@ -9,7 +9,7 @@ $( document ).ready(function() {
     Vue.use(VeeValidate, config);
 
     var app = new Vue({
-        el: "#theForm",
+        el: "#app",
         data: {
           isVueWorking: "VueJS is working!",
           submitted: false,
@@ -19,26 +19,21 @@ $( document ).ready(function() {
           apoddate: ''
         },
         methods: {
-          process: function() {
+          getApod: function(){
             this.submitted = true;
+            const url = "https://api.nasa.gov/planetary/apod?api_key=btcxP6qUvWv8xRzhAeeIIRJyYNaITnvdTXUwvJcz";
+            axios.get(url)
+              .then(function (res) {
+                console.log(res);
+                app.apodtitle = res.data.title;
+                app.apodurl = res.data.url;
+                app.apodexplanation = res.data.explanation;
+                app.apoddate = res.data.date;
+              })
+          },
+          moreToCome: function(){
+            // I will be adding more functionality
           }
         }
     })
-
-    const url = "https://api.nasa.gov/planetary/apod?api_key=btcxP6qUvWv8xRzhAeeIIRJyYNaITnvdTXUwvJcz";
-
-    axios.get(url)
-      .then(function (res) {
-        console.log(res);
-        app.apodtitle = res.data.title;
-        app.apodurl = res.data.url;
-        app.apodexplanation = res.data.explanation;
-        app.apoddate = res.data.date;
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .then(function () {
-
-      });
 });
