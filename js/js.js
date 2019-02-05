@@ -8,7 +8,6 @@ $( document ).ready(function() {
 
     Vue.use(VeeValidate, config);
 
-
     var app = new Vue({
         el: "#app",
         data: {

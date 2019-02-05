@@ -3,7 +3,13 @@ extends layout
 block content
     div#app
       h1= title
-      p {{isVueWorking}}
+      
+      ul
+        li {{isVueWorking}}
+        li This NodeJS/Express project makes calls to Nasa API's
+        li Helmet is used for CSP Security
+        li Scss is set up
+        li Gulp is set up to compile Scss and minify JS
 
       a(href="/apod") Astronomy Picture of Day
       br
