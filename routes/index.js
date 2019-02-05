@@ -8,8 +8,22 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET 'and another page'. */
-router.post('/', function(req, res, next) {
+/* GET apod page. */
+router.get('/apod', function(req, res, next) {
+  res.render('apod', {
+    title: 'Astronomy Picture Of the Day'
+  });
+});
+
+/* GET asteroids page. */
+router.get('/asteroids', function(req, res, next) {
+  res.render('asteroids', {
+    title: 'Nasa API Asteroids'
+  });
+});
+
+/* POST to apod to get results */
+router.post('/apod', function(req, res, next) {
   res.render('results', { title: 'Results', form: req.body });
 });
 

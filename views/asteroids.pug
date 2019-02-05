@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  div#asteroids
+  
+    h1= title
+    p {{isVueWorking}}
+    p Note: It's not often a close approach date is provided - expect lots of N/A's
+    br
+
+    div.container-fluid
+      div.row( v-for="a in asteroids")
+        div.col-6
+          p {{a.name}}
+        div.col-6
+          p {{getCloseApproachDate(a)}}

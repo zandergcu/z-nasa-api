@@ -1,25 +1,11 @@
 extends layout
 
 block content
-  
-  div#app
-    
-    form(method="GET" v-if="!submitted")#exampleForm
+    div#app
       h1= title
       p {{isVueWorking}}
-      p Click the button below to generate the 'Image of the Day' from the NASA API.
 
-      button(for="exampleForm" @click.prevent="getApod") Get APOD
-
-    div(v-else v-cloak)
-      h2 {{ apodtitle }}
-      p {{ apoddate }}
-      p {{ apodexplanation }}
-      img( :src="apodurl" :alt="apodtitle")
-    
-    div.container-fluid
-      div.row( v-for="a in asteroids")
-        div.col-6
-          p {{a.name}}
-        div.col-6
-          p {{getCloseApproachDate(a)}}
+      a(href="/apod") Astronomy Picture of Day
+      br
+      br
+      a(href="/asteroids") Asteroids

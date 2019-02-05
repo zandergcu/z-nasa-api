@@ -33,7 +33,7 @@ app.use(helmet.contentSecurityPolicy({
     defaultSrc: ["'self'"],
     scriptSrc: ["'self'", "https://cdn.jsdelivr.net", "https://unpkg.com", "'unsafe-inline'", "'unsafe-eval'"],
     connectSrc: ["https://api.nasa.gov", "https://apod.nasa.gov"],
-    imgSrc: ["'self'", "https://apod.nasa.gov"]
+    imgSrc: ["'self'", "https://apod.nasa.gov", "https://www.youtube.com"]
   }
 }))
 

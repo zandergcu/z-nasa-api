@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  
+  div#apod
+  
+    form(method="GET" v-if="!submitted")#exampleForm
+      h1= title
+      p {{isVueWorking}}
+      p Click the button below to generate the 'Image of the Day' from the NASA API.
+  
+      button(for="exampleForm" @click.prevent="getApod") Get APOD
+  
+    div(v-else v-cloak)
+      h2 {{ apodtitle }}
+      p {{ apoddate }}
+      p {{ apodexplanation }}
+      img( :src="apodurl" :alt="apodtitle")
