@@ -2,14 +2,11 @@ extends layout
 
 block content
   
-  div#apod
+  div#apod( v-if="isVueWorking" )
   
     form(method="GET" v-if="!submitted")#exampleForm
     
       h1= title
-      
-      p( v-if="isVueWorking" v-cloak ) {{isVueWorking}}
-      p( v-else v-cloak ) Vue JS isn't working for some reason...
       
       p Click the button below to generate the 'Image of the Day' from the NASA API.
   

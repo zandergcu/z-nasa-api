@@ -4,13 +4,13 @@ $( document ).ready(function() {
     var app = new Vue({
         el: "#app",
         data: {
-          isVueWorking: "VueJS is working!"
+          isVueWorking: true
         }
     });
     var apod = new Vue({
         el: "#apod",
         data: {
-          isVueWorking: "VueJS is working!",
+          isVueWorking: true,
           submitted: false,
           apodtitle: '',
           apodurl: '',
@@ -35,7 +35,7 @@ $( document ).ready(function() {
     var asteroids = new Vue({
         el: "#asteroids",
         data: {
-          isVueWorking: "VueJS is working!",
+          isVueWorking: true,
           ready: false,
           asteroids: []
         },
@@ -48,7 +48,11 @@ $( document ).ready(function() {
             axios.get(url)
               .then(function (res) {
                 asteroids.asteroids = res.data.near_earth_objects.slice(0, 10);
-                asteroids.ready = true;
+                // Give it time to load and for user to see "loading..."
+                setTimeout(function (){
+                  asteroids.ready = true;
+                }, 500);
+
               })
           },
           getCloseApproachDate: function (a) {

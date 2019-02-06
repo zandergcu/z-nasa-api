@@ -1,11 +1,8 @@
 extends layout
 
 block content
-    div#app
+    div#app( v-if="isVueWorking" )
       h1= title
-      
-      p( v-if="isVueWorking" v-cloak ) {{isVueWorking}}
-      p( v-else v-cloak ) Vue JS isn't working for some reason...
       
       ul
         li This NodeJS/Express project makes calls to Nasa API's

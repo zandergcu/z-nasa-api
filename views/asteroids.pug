@@ -2,12 +2,9 @@ extends layout
 
 block content
 
-  div#asteroids
+  div#asteroids( v-if="isVueWorking" )
   
     h1= title
-    
-    p( v-if="isVueWorking" v-cloak ) {{isVueWorking}}
-    p( v-else v-cloak ) Vue JS isn't working for some reason...
     
     p( v-if="!ready" v-cloak ) Loading Data...
     br
