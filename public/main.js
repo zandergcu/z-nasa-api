@@ -1,12 +1,5 @@
 
 $( document ).ready(function() {
-    console.log("JQuery Working");
-
-    var config ={
-      events: "blur"
-    }
-
-    Vue.use(VeeValidate, config);
 
     var app = new Vue({
         el: "#app",
@@ -43,6 +36,7 @@ $( document ).ready(function() {
         el: "#asteroids",
         data: {
           isVueWorking: "VueJS is working!",
+          ready: false,
           asteroids: []
         },
         created: function() {
@@ -54,9 +48,11 @@ $( document ).ready(function() {
             axios.get(url)
               .then(function (res) {
                 asteroids.asteroids = res.data.near_earth_objects.slice(0, 10);
+                asteroids.ready = true;
               })
           },
           getCloseApproachDate: function (a) {
+            asteroids.ready = true;
             console.log(a.close_approach_data);
             if (a.close_approach_data.length > 0){
               return a.close_approach_data[0].close_approach_date;

@@ -4,14 +4,18 @@ block content
     div#app
       h1= title
       
+      p( v-if="isVueWorking" v-cloak ) {{isVueWorking}}
+      p( v-else v-cloak ) Vue JS isn't working for some reason...
+      
       ul
-        li {{isVueWorking}}
         li This NodeJS/Express project makes calls to Nasa API's
         li Helmet is used for CSP Security
-        li Scss is set up
-        li Gulp is set up to compile Scss and minify JS
 
       a(href="/apod") Astronomy Picture of Day
       br
       br
       a(href="/asteroids") Asteroids
+
+      //- code to prevent console error as using multiple vue instances for clean code
+      div#apod
+      div#asteroids

@@ -5,13 +5,27 @@ block content
   div#asteroids
   
     h1= title
-    p {{isVueWorking}}
-    p Note: It's not often a close approach date is provided - expect lots of N/A's
+    
+    p( v-if="isVueWorking" v-cloak ) {{isVueWorking}}
+    p( v-else v-cloak ) Vue JS isn't working for some reason...
+    
+    p( v-if="!ready" v-cloak ) Loading Data...
     br
 
-    div.container-fluid
+    div.container-fluid( v-if="ready" v-cloak )
+      div.row
+        div.col-6
+          h5 Name
+        div.col-6
+          h5 Close Approach Date
       div.row( v-for="a in asteroids")
         div.col-6
           p {{a.name}}
         div.col-6
           p {{getCloseApproachDate(a)}}
+
+      p #[strong Note: I tested the data and there isn't many that provide the Date] 
+      
+  //- code to prevent console error as using multiple vue instances for clean code
+  div#app
+  div#apod

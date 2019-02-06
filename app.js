@@ -1,6 +1,5 @@
 var createError = require('http-errors');
-var express = require('express'),
-    expressValidator = require('express-validator');
+var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,11 +9,6 @@ const axios = require('axios');
 var indexRouter = require('./routes/index');
 
 var app = express();
-
-const validatorOptions ={
-
-}
-app.use(expressValidator(validatorOptions));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,8 +26,9 @@ app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
     scriptSrc: ["'self'", "https://cdn.jsdelivr.net", "https://unpkg.com", "'unsafe-inline'", "'unsafe-eval'"],
+    styleSrc: ["'self'", "https://stackpath.bootstrapcdn.com"],
     connectSrc: ["https://api.nasa.gov", "https://apod.nasa.gov"],
-    imgSrc: ["'self'", "https://apod.nasa.gov", "https://www.youtube.com"]
+    imgSrc: ["'self'", "https://apod.nasa.gov"]
   }
 }))
 

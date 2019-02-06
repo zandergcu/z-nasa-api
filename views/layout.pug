@@ -2,11 +2,13 @@ doctype html
 html(lang="en")
   head
     include includes/meta
-    link(rel="stylesheet", href="/build/main.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/main.css")
+    script(src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js")
     script(src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js")
-    script(src="https://cdn.jsdelivr.net/npm/vee-validate@2.1.5/dist/vee-validate.min.js")
     script(src="https://unpkg.com/axios/dist/axios.min.js")
+    
   body
     block content
-    script(src="/build/app.min.js")
+    script(src="/main.js")
     
